@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUsersTable extends Migration
+class CreateShippingInvoicesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,12 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
-            $table->increments('id');           
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->string('password');
+        Schema::create('shipping_invoices', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('order_id');
+            $table->date('shipping_date');
+            $table->float('shipping_amount', 0, 2);
+            $table->string('tracking_number');
             $table->timestamps();
         });
     }
@@ -29,6 +30,6 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('shipping_invoices');
     }
 }

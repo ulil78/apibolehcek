@@ -13,6 +13,23 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+// Route::middleware('auth:api')->get('/user', function (Request $request) {
+//     return $request->user();
+//
+//
+// });
+
+Route::group(['middleware' => ['api']], function(){
+
+  Route::post('/auth/signup', 'AuthController@postSignup');
+  Route::post('/auth/signin', 'AuthController@postSignin');
+
+  // Frontend Content
+  Route::get('/sliders', 'FrontendController@getSlider');
+  Route::get('/categories', 'FrontendController@getCategories');
+  Route::get('/levelone', 'FrontendController@getLevelOne');
+  Route::get('/leveltwo', 'FrontendController@getLevelTwo');
+
+
+
 });

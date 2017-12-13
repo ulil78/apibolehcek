@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUsersTable extends Migration
+class CreateShippingDisctricsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,13 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
-            $table->increments('id');           
+        Schema::create('shipping_districs', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('shipping_city_id')->unsigned();
             $table->string('name');
-            $table->string('email')->unique();
-            $table->string('password');
             $table->timestamps();
+
+            $table->foreign('shipping_city_id')->references('id')->on('shipping_cities')->onDelete('cascade');
         });
     }
 
@@ -29,6 +30,6 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('shipping_districs');
     }
 }
