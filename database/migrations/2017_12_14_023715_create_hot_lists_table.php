@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateDealTodaysTable extends Migration
+class CreateHotListsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,12 @@ class CreateDealTodaysTable extends Migration
      */
     public function up()
     {
-        Schema::create('deal_todays', function (Blueprint $table) {
+        Schema::create('hot_lists', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->string('slug_name');
-            $table->string('path')->default('images/deals');
+            $table->string('path')->default('images/hots/');
             $table->string('filename')->default('noimages.png');
-            $table->datetime('end_date');
-            $table->text('description');
+            $table->string('url');
             $table->enum('status', ['true', 'false'])->default('true');
             $table->timestamps();
         });
@@ -33,6 +31,6 @@ class CreateDealTodaysTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('deal_todays');
+        Schema::dropIfExists('hot_lists');
     }
 }

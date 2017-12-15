@@ -18,7 +18,7 @@ class CreateBannerBigsTable extends Migration
           $table->integer('cat_level_one_id')->unsigned();
           $table->string('name');
           $table->string('header');
-          $table->string('path')->default('images/categories/');
+          $table->string('path')->default('images/banners/');
           $table->string('filename')->default('noimages.png');
           $table->string('url');
           $table->enum('status', ['true', 'false'])->default('true');

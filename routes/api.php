@@ -26,6 +26,12 @@ Route::group(['middleware' => ['api']], function(){
 
   // Frontend Content
   Route::get('/sliders', 'FrontendController@getSlider');
+  Route::get('/brands', 'FrontendController@getBrand');
+  Route::get('/deals', 'FrontendController@getDeal');
+  Route::get('/hotlists', 'FrontendController@getHotlis');
+  Route::get('/banner/big/{id}', 'FrontendController@getBigBanner');
+  Route::get('/banner/small/{id}', 'FrontendController@getSmallBanner');
+
   Route::get('/categories', 'FrontendController@getCategories');
   Route::get('/levelone', 'FrontendController@getLevelOne');
   Route::get('/leveltwo', 'FrontendController@getLevelTwo');
