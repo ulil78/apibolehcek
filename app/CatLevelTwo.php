@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class CatLevelTwo extends Model
 {
 
-  
+
 
     public function level_one()
     {
@@ -17,5 +17,10 @@ class CatLevelTwo extends Model
     public function level_threes()
     {
       return $this->hasMany('App\CatLevelThree');
+    }
+
+    public function products()
+    {
+      return $this->hasMany('App\Product');
     }
 }

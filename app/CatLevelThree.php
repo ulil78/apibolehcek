@@ -10,4 +10,9 @@ class CatLevelThree extends Model
     {
         return $this->belongsTo('App\CatLevelTwo');
     }
+
+    public function products()
+    {
+      return $this->hasMany('App\Product');
+    }
 }

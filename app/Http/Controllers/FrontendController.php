@@ -60,7 +60,7 @@ class FrontendController extends Controller
     public function getHotlist()
     {
         $hotlists = \App\HotList::where('status', 'true')
-                                  ->teke('10')
+                                  ->take(10)
                                   ->get();
         return $hotlists->toJson();
     }
@@ -82,4 +82,13 @@ class FrontendController extends Controller
                                  ->get();
       return $smalls->toJson();
     }
+
+    public function getInfo()
+    {
+      $infos = \App\Info::all();
+      return $infos->toJson();
+
+    }
+
+    
 }

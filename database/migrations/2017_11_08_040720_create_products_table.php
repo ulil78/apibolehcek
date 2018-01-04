@@ -36,6 +36,7 @@ class CreateProductsTable extends Migration
             $table->enum('insurance',['true', 'false'])->default('false');
             $table->enum('share',['true', 'false'])->default('false');
             $table->integer('racks_id')->unsigned();
+            $table->integer('racks_id')->references('id')->on('racks');
             $table->integer('view');
             $table->integer('sold');
             $table->text('highlight');
