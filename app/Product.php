@@ -23,7 +23,9 @@ class Product extends Model
 
   public function seller()
   {
-      return $this->belongsTo('App\Seller');
+      return $this->belongsTo('App\Seller')->withDefault([
+        'status' => 'true',
+      ]);
   }
 
   public function brand()
@@ -40,5 +42,10 @@ class Product extends Model
   {
     return $this->hasMany('App\ProductImage');
 
+  }
+
+  public function reviews()
+  {
+      return $this->hasMany('App\Review');
   }
 }

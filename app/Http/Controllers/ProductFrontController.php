@@ -49,4 +49,28 @@ class ProductFrontController extends Controller
 
       return $products->toJson();
     }
+
+    public function getSeller($id)
+    {
+        $seller = \App\Seller::find($id);
+        return $seller->toJson();
+
+
+    }
+
+    public function getSellerProducts($id)
+    {
+        $seller_product = \App\Seller::where('id', $id)
+                              ->with('products')
+                              ->first();
+        return $seller_product->toJson();
+
+    }
+
+    public function getReviewProduct($id)
+    {
+       $reviews  = \App\Review::where('product_id', $id)
+                              ->get();
+        return $reviews->toJson();
+    }
 }

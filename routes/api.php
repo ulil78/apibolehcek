@@ -24,6 +24,12 @@ Route::get('/product/level-two/{id}/', 'ProductFrontController@getProductLevelTw
 Route::get('/product/level-three/{id}/', 'ProductFrontController@getProductLevelThree');
 Route::get('/product/detail/{id}/', 'ProductFrontController@getProductDetail');
 
+//sellers
+Route::get('/seller/{id}', 'ProductFrontController@getSeller');
+Route::get('/product/seller/{id}', 'ProductFrontController@getSellerProduct');
+Route::get('/review/product/{id}', 'ProductFrontController@getReview');
+
+
 /* General */
 Route::get('/about', 'GeneralController@getAbout');
 Route::get('/contact', 'GeneralController@getContact');
@@ -35,6 +41,8 @@ Route::get('/how-to-sell', 'GeneralController@getHowToSell');
 Route::get('/withdrawal', 'GeneralController@getWithdrawal');
 Route::get('/payment', 'GeneralController@getPayment');
 Route::get('/refund', 'GeneralController@getRefund');
+
+
 
 
 // jwt.auth middleware
